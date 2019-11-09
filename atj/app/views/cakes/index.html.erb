@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cakes</h1>
+
+<div class="row">
+  <% @cakes.each do |cake| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 d-flex justify-content-center">
+      <div class="card" style="width: 18rem; margin-bottom: 2em">
+        <%= image_tag cake.picture_url, class: 'card-img-top', alt: cake.description, style: 'height: 300px' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= cake.name %></h5>
+          <p class="card-text"><%= cake.description %></p>
+          <%= link_to 'Show', cake, class: 'btn btn-success' %>
+          <%= link_to 'Edit', edit_cake_path(cake), class: 'btn btn-light' %>
+          <%= link_to 'Delete', cake, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'New Cake', new_cake_path, class:"btn btn-success"%>
